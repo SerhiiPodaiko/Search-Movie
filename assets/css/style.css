@@ -9,14 +9,38 @@ body {
     background: #22254b;
 }
 
-main {
-    max-width: 1000px;
-    margin: 0 auto;
+header {
     display: flex;
+    justify-content: flex-end;
+    background: #373b69;
+    padding: 1rem;
+}
+
+.search{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: #fff;
+    background: transparent;
+    border: 2px solid #22254b;
+    border-radius: 50px;
+}
+.search::placeholder {
+    color: #7378c5;
+}
+
+.search:focus {
+    outline: none;
+}
+
+main {
+    display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
 .movie {
+    position: relative;
     margin: 10px;
     width: 300px;
     border-radius: 3px;
@@ -48,6 +72,7 @@ main {
     padding: 0.25rem 0.5rem;
     border-radius: 3px;
     background: #22254b;
+    font-weight: bold;
 }
 
 .movie-info span.green {
@@ -60,4 +85,28 @@ main {
 
 .movie-info span.red {
     color: red;
+}
+
+.overview {
+    padding: 2rem;
+    position: absolute;
+    max-height: 100%;
+    overflow: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: #fff;
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.3s ease;
+}
+
+.overview h4 {
+    margin-top: 0;
+}
+
+.movie:hover .overview {
+    transform: translateX(0);
+    visibility: visible;
 }
